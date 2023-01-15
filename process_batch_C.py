@@ -23,9 +23,8 @@ writer.writerow(header_list)
 
 for row in reader:
     Year, Month, Day, Time, TempK = row
-    TempF = round(float(TempK) + -459.67, 2)
+    TempF = round((float(TempK) - 273.1) * 9.0 / 5.0 + 32,2)
     writer.writerow([Year, Month, Day, Time, TempF])
 
 output_file.close()
 input_file.close()
-
